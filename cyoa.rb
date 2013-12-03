@@ -26,9 +26,16 @@ def run_game()
 	shipQuestion = "Alright, #{first_name}, choose your ship:" <<
 		 " ONYX: An Explorer Class ship designed to withstand deep space nebulae. ARMAMENTS: 3 black hole thrusters, 2 particle decelerator cannons, and 5 torpedo pods.\n" <<
 		 " ISTHMUS: A Warship Class frigate designed for heavy battle. ARMAMENTS: 5 black hole thrusters, 7 particle decelerator cannons, and 5 secondary heavy fire turrets\n" <<
-		 " CYRUS: An experimental stealth ship with a cloaking device prototype installed. ARMAMENTS: 2 black hole thrusters, 2 plasma cannons, and a faster than light nuclear engine core\n "
-	ship = get_user_response( shipQuestion, " onyx isthmus cyrus", "Sorry. Pick one of the ships listed.\n\n" ).capitalize
+		 " CYRUS: An experimental stealth ship with a cloaking device prototype installed. ARMAMENTS: 2 black hole thrusters, 2 plasma cannons, and a faster than light nuclear engine core\n" << 
+		 " A WATER BARREL: A water barrel. Likely to lead to the death of us all.\n"
+	ship = get_user_response( shipQuestion, " onyx isthmus cyrus a water barrel ", "Sorry. Pick one of the ships listed.\n\n" ).capitalize
 	
+	if ship.downcase == "a water barrel"
+		puts "Um. You all die. It's a water barrel. You can't travel through space in a water barrel."
+		puts "GAME OVER"
+		exit(0)
+	end
+
 	print " Congratulations on your new #{ship}, Commander #{last_name}. Your first mission is to escort a Union ambassador to planet Magnon. Good luck."
 	print " SOMEONE TAPS ON YOUR SHOULDER: Evening, commander! I'm your first officer simulation. I'll be assisting you in your missions. What do you want to name me? And don't bother with silly last names."
 
